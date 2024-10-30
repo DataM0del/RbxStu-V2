@@ -3,7 +3,6 @@
 //
 #pragma once
 
-#include <ThemidaSDK.h>
 #include <cstdint>
 #include <memory>
 #include <string>

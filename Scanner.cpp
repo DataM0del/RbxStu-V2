@@ -4,8 +4,6 @@
 
 #include "Scanner.hpp"
 
-#include <ThemidaSDK.h>
-
 std::shared_ptr<Scanner> Scanner::pInstance;
 
 Signature SignatureByte::GetSignatureFromString(const std::string &aob, const std::string &mask) {

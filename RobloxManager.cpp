@@ -10,7 +10,6 @@
 
 #include <DbgHelp.h>
 
-#include <ThemidaSDK.h>
 #include "Debugger/DebuggerManager.hpp"
 #include "Disassembler/Disassembler.hpp"
 #include "Disassembler/DisassemblyRequest.hpp"
