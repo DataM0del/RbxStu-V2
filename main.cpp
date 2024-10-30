@@ -9,7 +9,6 @@
 
 #include <DbgHelp.h> // Must be positioned here because else include failure.
 
-#include <ThemidaSDK/ThemidaSDK.h>
 #include "Communication/Communication.hpp"
 #include "LuauManager.hpp"
 #include "RobloxManager.hpp"
