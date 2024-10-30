@@ -133,9 +133,6 @@ long exception_filter(PEXCEPTION_POINTERS pExceptionPointers) {
 }
 
 int main() {
-    VM_START;
-    STR_ENCRYPT_START;
-    watermark();
     SetUnhandledExceptionFilter(exception_filter);
     AllocConsole();
     const auto logger = Logger::GetSingleton();
@@ -278,9 +275,6 @@ int main() {
 
     logger->PrintInformation(RbxStu::MainThread,
                              "Main Thread will now close, as RbxStu V2's initialization has been completed.");
-
-    STR_ENCRYPT_END;
-    VM_END;
     return 0;
 }
 

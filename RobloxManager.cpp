@@ -22,8 +22,6 @@
 std::shared_mutex __robloxmanager__singleton__lock;
 
 void rbx_rbxcrash(const char *crashType, const char *crashDescription) {
-    VM_START;
-    STR_ENCRYPT_START;
     const auto logger = Logger::GetSingleton();
 
     if (crashType == nullptr)
@@ -73,8 +71,6 @@ void rbx_rbxcrash(const char *crashType, const char *crashDescription) {
     MessageBoxA(nullptr, ("Studio Crash"), ("Execution suspended. RBXCRASH has been called."), MB_OK);
 
     Sleep(60000);
-    STR_ENCRYPT_END;
-    VM_END;
 }
 
 std::shared_mutex __rbx__scriptcontext__resumeWaitingThreads__lock;
