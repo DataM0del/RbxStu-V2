@@ -16,20 +16,8 @@
 #include "Scanner.hpp"
 #include "Scheduler.hpp"
 
-#include <obfus.h>
-
 #include "Debugger/DebuggerManager.hpp"
 #include "ModLoader/ModManager.hpp"
-
-static void watermark() {
-    WATERMARK(R"(/***)", R"( *      ____  _          ____  _          __     ______  )",
-              R"( *     |  _ \| |____  __/ ___|| |_ _   _  \ \   / /___ \ )",
-              R"( *     | |_) | '_ \ \/ /\___ \| __| | | |  \ \ / /  __) |)",
-              R"( *     |  _ <| |_) >  <  ___) | |_| |_| |   \ V /  / __/ )",
-              R"( *     |_| \_\_.__/_/\_\|____/ \__|\__,_|    \_/  |_____|)",
-              R"( *)"
-              R"( */ )");
-}
 
 long exception_filter(PEXCEPTION_POINTERS pExceptionPointers) {
     const auto *pContext = pExceptionPointers->ContextRecord;
