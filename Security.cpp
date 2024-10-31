@@ -38,19 +38,20 @@ std::unordered_map<std::string, std::pair<std::uint64_t, bool>> allCapabilities 
                                                                                    {"Avatar", {0x1d, true}},
                                                                                    {"Input", {0x1e, true}},
                                                                                    {"Environment", {0x1f, true}},
-                                                                                   {"RemoteEvent", {0x1f, true}},
-                                                                                   {"PluginOrOpenCloud", {0x1f, true}},
+                                                                                   {"RemoteEvent", {0x20, true}},
+                                                                                   {"LegacySound", {0x21, true}},
+                                                                                   {"PluginOrOpenCloud", {0x3d, true}},
                                                                                    {"Assistant", {0x3e, true}}};
 
 std::unordered_map<std::int32_t, std::list<std::string>> identityCapabilities = {
         {3,
          {"RunServerScript", "Plugin", "LocalUser", "RobloxScript", "RunClientScript", "AccessOutsideWrite", "Avatar",
-          "RemoteEvent", "Environment", "Input"}},
-        {2, {"CSG", "Chat", "Animation", "RemoteEvent", "Avatar"}}, // These are needed for 'require' to work!
-        {4, {"Plugin", "LocalUser", "RemoteEvent", "Avatar"}},
+          "RemoteEvent", "Environment", "Input", "LegacySound"}},
+        {2, {"CSG", "Chat", "Animation", "RemoteEvent", "Avatar", "LegacySound"}}, // These are needed for 'require' to work!
+        {4, {"Plugin", "LocalUser", "RemoteEvent", "Avatar", "LegacySound"}},
         {6,
          {"RunServerScript", "Plugin", "LocalUser", "Avatar", "RobloxScript", "RunClientScript", "AccessOutsideWrite",
-          "Input", "Environment", "RemoteEvent", "PluginOrOpenCloud"}},
+          "Input", "Environment", "RemoteEvent", "PluginOrOpenCloud", "LegacySound"}},
         {8,
          {"Plugin",
           "LocalUser",
@@ -80,7 +81,7 @@ std::unordered_map<std::int32_t, std::list<std::string>> identityCapabilities = 
           "Environment",
           "RemoteEvent",
           "PluginOrOpenCloud",
-          "Assistant"}}};
+          "Assistant", "LegacySound"}}};
 
 std::shared_ptr<Security> Security::pInstance;
 
@@ -110,7 +111,7 @@ void Security::PrintCapabilities(std::uint32_t capabilities) {
 
 std::uint64_t Security::IdentityToCapabilities(const std::uint32_t identity) {
     std::uint64_t capabilities =
-            0x1FFFFFF00ull | (1ull << 48ull); // Basic capability | Checkcaller check, the capabilities work as flags.
+            0x3FFFFFF00ull | (1ull << 48ull); // Basic capability | Checkcaller check, the capabilities work as flags.
 
     if (const auto capabilitiesForIdentity = identityCapabilities.find(identity);
         capabilitiesForIdentity != identityCapabilities.end()) {
