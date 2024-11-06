@@ -75,7 +75,6 @@ cmake --build --preset={preset name here}
 ## Significant Contributors:
 
 - [Dottik (SecondNewtonLaw/NaN)](https://github.com/SecondNewtonLaw): Lead Developer/Owner, Maintainer
-- [nHisoka (Yoru)](https://github.com/nhisoka): Contributor
 - [Pixeluted](https://github.com/Pixeluted): Contributor
 - [MakeSureDudeDies](https://github.com/MakeSureDudeDies): Contributor
 - [Shadow](https://github.com/ShadowIsReal): Contributor
